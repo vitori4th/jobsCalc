@@ -27,11 +27,14 @@ routes.get('/profile', (req, res) => {
   return res.render(views + 'profile', { profile: profile })
 })
 routes.post('/job', (req, res) => {
-  const job = req.body
 
-  job.createdAt = Date.now() //satribuindo uma nova data
-
-  jobs.push(job)
+  jobs.push({
+    name: req.body.name,
+    "daily-hours": req.body["daily-hours"],
+    "total-hours": req.body["total-hours"],
+    createdAt: Date.now() // atribuindo data de hoje
+  })
+  
   return res.redirect('/')
 })
 
