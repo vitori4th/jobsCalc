@@ -12,7 +12,13 @@ const profile = {
   'vacation-per-year': 4
 }
 
-const jobs = []
+const jobs = [{
+  id:1,
+  name: "Pizzaria",
+  "daily-hours":2,
+  "total-hours": 60,
+  created_at: Date.now()
+}]
 
 routes.get('/', (req, res) => {
   return res.render(views + 'index')
@@ -34,7 +40,7 @@ routes.post('/job', (req, res) => {
     name: req.body.name,
     "daily-hours": req.body["daily-hours"],
     "total-hours": req.body["total-hours"],
-    createdAt: Date.now() // atribuindo data de hoje
+    created_at: Date.now() // atribuindo data de hoje
   })
   
   return res.redirect('/')
